@@ -1,0 +1,103 @@
+{
+  "dataset_shape": [
+    1480,
+    34
+  ],
+  "attrition_rate_percent": 16.08,
+  "top_attrition_drivers": [
+    {
+      "feature": "OverTime",
+      "importance_mean": 0.06279401881720444,
+      "importance_std": 0.012993665835070736
+    },
+    {
+      "feature": "MaritalStatus",
+      "importance_mean": 0.03450940860215066,
+      "importance_std": 0.007418088562659487
+    },
+    {
+      "feature": "JobRole",
+      "importance_mean": 0.0332073252688173,
+      "importance_std": 0.014861833182291121
+    },
+    {
+      "feature": "BusinessTravel",
+      "importance_mean": 0.027091733870967815,
+      "importance_std": 0.005515930160682399
+    },
+    {
+      "feature": "NumCompaniesWorked",
+      "importance_mean": 0.023303091397849574,
+      "importance_std": 0.008328759204665102
+    },
+    {
+      "feature": "TotalWorkingYears",
+      "importance_mean": 0.021656586021505497,
+      "importance_std": 0.010108035704670094
+    },
+    {
+      "feature": "EnvironmentSatisfaction",
+      "importance_mean": 0.02139616935483881,
+      "importance_std": 0.006474635021630265
+    },
+    {
+      "feature": "JobSatisfaction",
+      "importance_mean": 0.018279569892473257,
+      "importance_std": 0.005673591524085182
+    },
+    {
+      "feature": "Age",
+      "importance_mean": 0.018044354838709798,
+      "importance_std": 0.008039784124945475
+    },
+    {
+      "feature": "MonthlyIncome",
+      "importance_mean": 0.0163978494623657,
+      "importance_std": 0.007282621768633868
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.8007,
+    "precision": 0.4396,
+    "recall": 0.8333,
+    "f1_score": 0.5755,
+    "roc_auc": 0.8942,
+    "confusion_matrix": [
+      [
+        197,
+        51
+      ],
+      [
+        8,
+        40
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.9609756097560975,
+        "recall": 0.7943548387096774,
+        "f1-score": 0.869757174392936,
+        "support": 248.0
+      },
+      "1": {
+        "precision": 0.43956043956043955,
+        "recall": 0.8333333333333334,
+        "f1-score": 0.5755395683453237,
+        "support": 48.0
+      },
+      "accuracy": 0.8006756756756757,
+      "macro avg": {
+        "precision": 0.7002680246582685,
+        "recall": 0.8138440860215054,
+        "f1-score": 0.7226483713691298,
+        "support": 296.0
+      },
+      "weighted avg": {
+        "precision": 0.8764217983730178,
+        "recall": 0.8006756756756757,
+        "f1-score": 0.8220462112500799,
+        "support": 296.0
+      }
+    }
+  }
+}

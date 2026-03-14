@@ -1,0 +1,43 @@
+{
+  "dataset_shape": [
+    1000,
+    20
+  ],
+  "average_daily_usage_minutes": 95.95,
+  "happiness_share_percent": 20.0,
+  "metrics": {
+    "logistic_accuracy": 0.9,
+    "logistic_f1": 0.7297,
+    "logistic_roc_auc": 0.9412,
+    "logistic_classification_report": {
+      "0": {
+        "precision": 0.9216867469879518,
+        "recall": 0.95625,
+        "f1-score": 0.9386503067484663,
+        "support": 160.0
+      },
+      "1": {
+        "precision": 0.7941176470588235,
+        "recall": 0.675,
+        "f1-score": 0.7297297297297297,
+        "support": 40.0
+      },
+      "accuracy": 0.9,
+      "macro avg": {
+        "precision": 0.8579021970233877,
+        "recall": 0.815625,
+        "f1-score": 0.834190018239098,
+        "support": 200.0
+      },
+      "weighted avg": {
+        "precision": 0.8961729270021261,
+        "recall": 0.9,
+        "f1-score": 0.896866191344719,
+        "support": 200.0
+      }
+    },
+    "statsmodels_logit_pseudo_r2": 0.556,
+    "linear_r_squared": 0.9366,
+    "linear_adj_r_squared": 0.9357
+  }
+}
