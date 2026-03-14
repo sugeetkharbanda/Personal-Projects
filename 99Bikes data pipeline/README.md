@@ -1,5 +1,5 @@
 
-# Retail Sales Data Pipeline (99 Bikes)
+Data Pipeline for 99 Bikes(Sample data)
 
 End-to-end ETL and SQL analytics pipeline using a 20,000 row bicycle retail dataset.
 
