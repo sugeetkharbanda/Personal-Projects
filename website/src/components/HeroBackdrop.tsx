@@ -1,121 +1,39 @@
-/** Generative brand geometry — triangle + arc from the Auto Traders mark. No photos. */
+/**
+ * Abstract animated stage — not a logo recreation.
+ * Cool graphite/slate field + drifting light orbs, ribbons, and a soft mesh.
+ */
 export function HeroBackdrop() {
   return (
-    <div className="absolute inset-0 overflow-hidden bg-ink" aria-hidden="true">
-      {/* Deep radial stage */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,#2a2827_0%,#0a0909_58%,#050505_100%)]" />
+    <div
+      className="absolute inset-0 overflow-hidden bg-[#0c1018]"
+      aria-hidden="true"
+    >
+      {/* Cool slate base (intentionally not pure ink-black) */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_0%,#1a2336_0%,transparent_50%),radial-gradient(ellipse_at_90%_80%,#1c1420_0%,transparent_45%),linear-gradient(165deg,#0e141f_0%,#121820_40%,#0a0d14_100%)]" />
 
-      {/* Subtle drifting technical grid */}
-      <div className="geom-grid absolute inset-0 opacity-40 mix-blend-soft-light" />
+      {/* Soft color wash — playful signal + cool cyan undertone */}
+      <div className="hero-blob hero-blob-a absolute -right-[20%] top-[-10%] h-[75vmin] w-[75vmin] rounded-full bg-[radial-gradient(circle,rgba(225,0,15,0.34),transparent_62%)] blur-3xl" />
+      <div className="hero-blob hero-blob-b absolute -left-[15%] bottom-[-20%] h-[60vmin] w-[60vmin] rounded-full bg-[radial-gradient(circle,rgba(90,140,200,0.22),transparent_65%)] blur-3xl" />
+      <div className="hero-blob hero-blob-c absolute left-[35%] top-[20%] h-[40vmin] w-[40vmin] rounded-full bg-[radial-gradient(circle,rgba(240,241,242,0.1),transparent_70%)] blur-2xl" />
 
-      {/* Signal red ambient bloom */}
-      <div className="absolute -right-1/4 top-1/4 h-[70vmin] w-[70vmin] rounded-full bg-[radial-gradient(circle,rgba(225,0,15,0.3),transparent_65%)] blur-2xl" />
-      <div className="absolute bottom-0 left-0 h-[45vmin] w-[45vmin] rounded-full bg-[radial-gradient(circle,rgba(240,241,242,0.1),transparent_70%)] blur-3xl" />
+      {/* Floating soft capsules / playful shapes (not brand geometry) */}
+      <div className="hero-float-1 absolute right-[12%] top-[22%] h-24 w-24 rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-sm sm:h-32 sm:w-32" />
+      <div className="hero-float-2 absolute right-[28%] top-[48%] h-14 w-40 rounded-full border border-signal/25 bg-signal/10 sm:h-16 sm:w-48" />
+      <div className="hero-float-3 absolute bottom-[22%] right-[18%] h-20 w-20 rounded-full border border-chrome/20 bg-gradient-to-br from-white/10 to-transparent sm:h-28 sm:w-28" />
 
-      {/* Large mark geometry */}
-      <svg
-        className="absolute -right-[8%] top-[8%] h-[92%] w-[72%] text-chrome opacity-90"
-        viewBox="0 0 400 400"
-        fill="none"
-      >
-        <defs>
-          <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#c5c7c8" stopOpacity="0.15" />
-            <stop offset="45%" stopColor="#9c9e9f" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#e1000f" stopOpacity="0.4" />
-          </linearGradient>
-          <linearGradient id="triGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stopColor="#f0f1f2" stopOpacity="0.55" />
-            <stop offset="45%" stopColor="#c8cacd" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#e1000f" stopOpacity="0.5" />
-          </linearGradient>
-          <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="4" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
+      {/* Diagonal light ribbons */}
+      <div className="hero-ribbon pointer-events-none absolute -left-1/4 top-[10%] h-[140%] w-[55%] rotate-[-18deg] bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+      <div className="hero-ribbon-delay pointer-events-none absolute left-[20%] top-[-20%] h-[140%] w-[40%] rotate-[-18deg] bg-gradient-to-r from-transparent via-signal/15 to-transparent" />
 
-        {/* Outer orbit ring */}
-        <g className="hero-orbit" style={{ transformOrigin: "200px 200px" }}>
-          <circle
-            cx="200"
-            cy="200"
-            r="168"
-            stroke="url(#arcGrad)"
-            strokeWidth="1.25"
-            strokeDasharray="6 14"
-            opacity="0.55"
-          />
-          <circle
-            cx="200"
-            cy="200"
-            r="148"
-            stroke="#9c9e9f"
-            strokeWidth="0.6"
-            opacity="0.25"
-          />
-        </g>
+      {/* Speckled starfield — subtle, modern */}
+      <div className="hero-stars absolute inset-0 opacity-70" />
 
-        {/* Brand arc (open at bottom) */}
-        <g className="hero-pulse" style={{ transformOrigin: "200px 200px" }}>
-          <path
-            d="M86 268 A130 130 0 1 1 314 268"
-            stroke="url(#arcGrad)"
-            strokeWidth="18"
-            strokeLinecap="round"
-            fill="none"
-            opacity="0.55"
-            filter="url(#softGlow)"
-          />
-        </g>
+      {/* Horizontal scan shimmer */}
+      <div className="hero-scan pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white/[0.06] to-transparent" />
 
-        {/* Brand triangle */}
-        <path
-          d="M200 78 L318 286 L82 286 Z"
-          fill="url(#triGrad)"
-          stroke="#c5c7c8"
-          strokeWidth="1.2"
-          opacity="0.42"
-        />
-        <path
-          d="M200 118 L278 264 L122 264 Z"
-          stroke="#e1000f"
-          strokeWidth="1.4"
-          opacity="0.6"
-        />
-
-        {/* Horizon lines */}
-        <path
-          d="M40 300 L360 300"
-          stroke="#565757"
-          strokeWidth="0.8"
-          opacity="0.5"
-        />
-        <path
-          d="M70 318 L330 318"
-          stroke="#9c9e9f"
-          strokeWidth="0.5"
-          opacity="0.3"
-        />
-        <path
-          d="M110 336 L290 336"
-          stroke="#e1000f"
-          strokeWidth="0.7"
-          opacity="0.4"
-        />
-      </svg>
-
-      {/* Light sweep */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 hero-sweep">
-        <div className="h-full w-full bg-gradient-to-r from-transparent via-white/10 to-transparent blur-md" />
-      </div>
-
-      {/* Edge vignette for typography legibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/25" />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/50" />
+      {/* Left vignette for copy legibility */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0c1018] via-[#0c1018]/75 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0c1018] via-transparent to-[#0c1018]/40" />
     </div>
   );
 }
