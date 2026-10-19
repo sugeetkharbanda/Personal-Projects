@@ -7,10 +7,11 @@ type BrandMarkProps = {
   showWordmark?: boolean;
 };
 
+/** Wide lockup (~5:1). Width drives size; height stays auto so nothing clips. */
 const sizeMap = {
-  sm: { width: 168, height: 58 },
-  md: { width: 210, height: 72 },
-  lg: { width: 280, height: 96 },
+  sm: { width: 240 },
+  md: { width: 300 },
+  lg: { width: 380 },
 };
 
 export function BrandMark({
@@ -19,7 +20,6 @@ export function BrandMark({
   showWordmark = true,
 }: BrandMarkProps) {
   const s = sizeMap[size];
-  // Raster for next/image; SVG kept in public for crisp exports
   const src = showWordmark
     ? tone === "light"
       ? site.brand.logoOnDarkRaster
@@ -28,20 +28,20 @@ export function BrandMark({
       ? site.brand.iconOnDark
       : site.brand.icon;
 
+  const width = showWordmark ? s.width : 40;
+  const height = showWordmark ? Math.round(s.width / 4.82) : 40;
+
   return (
-    <span className="inline-flex items-center">
+    <span className="inline-flex max-w-full items-center overflow-visible">
       <Image
         src={src}
         alt={site.name}
-        width={showWordmark ? s.width : Math.round(s.height * 0.95)}
-        height={s.height}
-        className="h-auto object-contain"
-        style={{
-          width: showWordmark ? s.width : Math.round(s.height * 0.95),
-          height: "auto",
-          maxHeight: s.height,
-        }}
+        width={width}
+        height={height}
+        className="h-auto w-auto max-w-full object-contain object-left"
+        style={{ width, height: "auto", maxWidth: "100%" }}
         priority
+        unoptimized
       />
     </span>
   );

@@ -65,16 +65,14 @@ export function Hero() {
             </h2>
             <Image
               src={site.brand.logoOnDarkRaster}
-              alt={site.name}
-              width={420}
-              height={144}
+              alt={`${site.name} — ${site.tagline}`}
+              width={960}
+              height={199}
               priority
-              className="h-auto w-[min(100%,22rem)] object-contain sm:w-[26rem]"
+              unoptimized
+              className="h-auto w-[min(100%,30rem)] max-w-full object-contain object-left sm:w-[34rem] md:w-[40rem]"
             />
-            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.28em] text-silver">
-              {site.tagline}
-            </p>
-            <h1 className="mt-7 max-w-2xl font-display text-4xl font-semibold uppercase leading-[1.05] tracking-tight text-chrome-bright sm:text-5xl md:text-6xl">
+            <h1 className="mt-8 max-w-2xl font-display text-4xl font-semibold uppercase leading-[1.05] tracking-tight text-chrome-bright sm:text-5xl md:text-6xl">
               {site.hero.headline}
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-platinum/90 sm:text-lg md:text-xl">
