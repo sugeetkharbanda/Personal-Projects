@@ -1,13 +1,13 @@
-# AutoSourcing India — Landing Page
+# Auto Traders — Landing Page
 
-Premium single-page marketing site for **AutoSourcing India** (ASI): nationwide new car sourcing, with finance and insurance support.
+Premium single-page marketing site for **Auto Traders**: nationwide new car sourcing, with finance and insurance support.
 
 ## Stack
 
 - Next.js App Router + TypeScript
 - Tailwind CSS v4
-- `next/font` — Fraunces (display) + Manrope (UI)
-- `next/image` + Lucide icons
+- `next/font` — Oswald (display) + Manrope (UI)
+- Lucide icons
 - Optional Resend for enquiry email delivery
 
 ## Local run
@@ -22,66 +22,46 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
-npm run build   # production build
-npm start       # serve production build
+npm run build
+npm start
 ```
 
 ## Configuration
 
-Business copy, nav, services, contact placeholders, and social links live in:
+Business copy lives in [`src/lib/site.ts`](src/lib/site.ts).
 
-[`src/lib/site.ts`](src/lib/site.ts)
+## Brand assets
 
-Update that file when the official logo, colours, phone, email, WhatsApp, or social URLs arrive.
+Converted from CorelDRAW `auto-traders.cdr` (v12) via Inkscape/libcdr:
+
+| File | Use |
+|------|-----|
+| `public/brand/logo.svg` / `logo.png` / `logo@2x.png` | Wordmark lockup (light surfaces) |
+| `public/brand/logo-on-dark.svg` / `logo-on-dark.png` | Lockup for dark surfaces |
+| `public/brand/logo-icon.png` | Emblem / favicon |
+
+Hero uses a **generative SVG/CSS composition** from the logo’s triangle + arc geometry—no stock photography.
+
+## Palette (from logo)
+
+| Token | Hex | Role |
+|-------|-----|------|
+| Ink | `#0A0909` | Stage / near-black |
+| Graphite | `#1B1918` | Surfaces on dark |
+| Steel | `#565757` | Secondary type / chrome mid |
+| Silver | `#9C9E9F` | Borders / muted chrome |
+| Chrome | `#C5C7C8` | Highlights |
+| Signal | `#D10016` | Primary CTAs / TRADERS red |
+| Signal deep | `#A50012` | Hover |
+| Signal glow | `#E30016` | Accents |
 
 ## Enquiry form
 
-- Form fields submit to `POST /api/enquiry`
-- Server validates the payload
-- Email is sent **only** when all of the following are set:
-  - `RESEND_API_KEY`
-  - `ENQUIRY_TO_EMAIL`
-  - `ENQUIRY_FROM_EMAIL` (defaults to Resend onboarding sender if omitted)
-- If email is not configured, the API returns **503** with a clear message. The UI never pretends the enquiry was delivered.
-
-See [`.env.example`](.env.example).
-
-## Design notes
-
-| Token         | Value     |
-|---------------|-----------|
-| Ink           | `#07090D` |
-| Graphite      | `#12151C` |
-| Surface       | `#EEF0F3` |
-| Chrome        | `#C0C0C0` |
-| Crimson       | `#A11C1E` |
-| Crimson deep  | `#8B0A0E` |
-
-Brand marks (extracted from official PSD `logo-a.png` via `psd-tools`):
-
-- `public/brand/logo.png` + `logo@2x.png` — transparent composite (chrome + crimson + soft shadow)
-- `public/brand/logo-icon.png` + `logo-icon@2x.png` — square nav/favicon
-- `public/brand/layers/` — `logo.png` (chrome), `red.png` (crimson), `shadow.png`
-- Hero: `public/hero/hero.jpg` — art-directed studio plate with brand grading
-
-Differentiator copy centres on a **broader nationwide sourcing network**. Shorter waits are framed as a possible outcome, never a guarantee. No fabricated testimonials, stats, affiliations, prices, or timelines.
+`POST /api/enquiry` validates server-side. Email sends only when `RESEND_API_KEY` + `ENQUIRY_TO_EMAIL` are set; otherwise **503** with a clear message (never fake success).
 
 ## Still needing your input
 
-1. Optional fine-tuning of crimson/chrome against print/brand guidelines
-2. **Real contact details** — phone, email, WhatsApp, address/hours
-3. **Social profile URLs**
-4. **Resend credentials** + enquiry inbox (`RESEND_API_KEY`, `ENQUIRY_TO_EMAIL`, verified from address)
-5. **Domain / hosting** preferences for deploy
-6. Privacy & Terms page content (stubs only today)
-7. Optional native SVG of the mark if design provides one
-
-## Project layout
-
-```
-website/
-  src/app/           # layout, page, globals, api/enquiry
-  src/components/    # Header, Hero, Services, HowItWorks, WhyUs, ContactForm, Footer
-  src/lib/           # site.ts, enquiry.ts
-  public/brand/      # placeholder brand mark
-```
+1. Real phone / WhatsApp / social URLs (email from logo sheet is seeded as placeholder contact)
+2. Resend credentials + verified from address
+3. Domain / hosting
+4. Privacy & Terms copy

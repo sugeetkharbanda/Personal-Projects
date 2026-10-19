@@ -7,10 +7,14 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="scroll-mt-24 bg-surface-elevated py-24 sm:py-32"
+      className="relative scroll-mt-24 overflow-hidden bg-surface-elevated py-24 sm:py-32"
       aria-labelledby="how-heading"
     >
-      <Container>
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-signal/50 to-transparent"
+        aria-hidden="true"
+      />
+      <Container className="relative">
         <Reveal>
           <SectionHeading
             eyebrow="How it works"
@@ -28,7 +32,7 @@ export function HowItWorks() {
               <li className="relative">
                 <div className="mb-6 flex items-baseline gap-3">
                   <span
-                    className="font-display text-5xl font-semibold tracking-tight text-crimson"
+                    className="font-display text-5xl font-semibold tracking-tight text-signal"
                     aria-hidden="true"
                   >
                     {String(item.step).padStart(2, "0")}

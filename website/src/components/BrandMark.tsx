@@ -8,9 +8,9 @@ type BrandMarkProps = {
 };
 
 const sizeMap = {
-  sm: { mark: 40, word: "text-base sm:text-lg" },
-  md: { mark: 48, word: "text-lg sm:text-xl" },
-  lg: { mark: 64, word: "text-2xl" },
+  sm: { width: 168, height: 58 },
+  md: { width: 210, height: 72 },
+  lg: { width: 280, height: 96 },
 };
 
 export function BrandMark({
@@ -18,30 +18,31 @@ export function BrandMark({
   size = "md",
   showWordmark = true,
 }: BrandMarkProps) {
-  const wordColor = tone === "dark" ? "text-ink" : "text-white";
   const s = sizeMap[size];
+  // Raster for next/image; SVG kept in public for crisp exports
+  const src = showWordmark
+    ? tone === "light"
+      ? site.brand.logoOnDarkRaster
+      : site.brand.logoRaster
+    : tone === "light"
+      ? site.brand.iconOnDark
+      : site.brand.icon;
 
   return (
-    <span className="inline-flex items-center gap-2.5 sm:gap-3">
+    <span className="inline-flex items-center">
       <Image
-        src={site.brand.icon}
-        alt=""
-        width={s.mark}
-        height={s.mark}
-        className="h-auto w-auto shrink-0 object-contain"
-        style={{ width: s.mark, height: s.mark }}
-        sizes={`${s.mark}px`}
+        src={src}
+        alt={site.name}
+        width={showWordmark ? s.width : Math.round(s.height * 0.95)}
+        height={s.height}
+        className="h-auto object-contain"
+        style={{
+          width: showWordmark ? s.width : Math.round(s.height * 0.95),
+          height: "auto",
+          maxHeight: s.height,
+        }}
         priority
       />
-      {showWordmark ? (
-        <span
-          className={`font-display font-semibold tracking-tight ${s.word} ${wordColor}`}
-        >
-          {site.name}
-        </span>
-      ) : (
-        <span className="sr-only">{site.name}</span>
-      )}
     </span>
   );
 }

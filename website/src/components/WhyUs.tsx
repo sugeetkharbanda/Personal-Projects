@@ -16,7 +16,7 @@ export function WhyUs() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Why AutoSourcing India"
+            eyebrow="Why Auto Traders"
             title="Luxury of attention. Focus on the brief. Determination in the search."
             description="Our differentiator is reach: a broader nationwide sourcing network. Shorter waits can happen when the right option surfaces sooner—but we never treat that as a promise."
             tone="light"
@@ -31,7 +31,7 @@ export function WhyUs() {
                 key={item.title}
                 delay={(Math.min(index, 3) as 0 | 1 | 2 | 3)}
               >
-                <article className="glass-dark rounded-sm border-l-2 border-l-crimson/70 p-6 sm:p-7">
+                <article className="glass-dark rounded-sm border-l-2 border-l-signal/70 p-6 sm:p-7">
                   <div className="mb-4 inline-flex text-chrome-bright">
                     <Icon size={22} aria-hidden="true" />
                   </div>

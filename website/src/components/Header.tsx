@@ -12,7 +12,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 18);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -25,13 +25,15 @@ export function Header() {
     };
   }, [open]);
 
-  const frosted = scrolled || open;
+  // Over dark hero: transparent/dark integrated. On scroll: frosted glass.
+  // Mobile menu open: dark frosted so it never flashes light-grey over hero.
+  const elevated = scrolled || open;
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 animate-nav-in transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-        frosted
-          ? "border-b border-chrome/25 bg-surface/75 shadow-[0_10px_40px_-24px_rgba(7,9,13,0.45)] backdrop-blur-xl"
+        elevated
+          ? "border-b border-white/10 bg-ink/70 shadow-[0_12px_40px_-20px_rgba(0,0,0,0.65)] backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -42,11 +44,7 @@ export function Header() {
           onClick={() => setOpen(false)}
           aria-label={`${site.name} home`}
         >
-          <BrandMark
-            tone={frosted ? "dark" : "light"}
-            size="sm"
-            showWordmark
-          />
+          <BrandMark tone="light" size="sm" showWordmark />
         </a>
 
         <nav
@@ -57,11 +55,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
-                frosted
-                  ? "text-ink/75 hover:text-ink"
-                  : "text-white/80 hover:text-white"
-              }`}
+              className="text-sm font-medium tracking-wide text-white/80 transition-colors duration-300 hover:text-white"
             >
               {item.label}
             </a>
@@ -73,9 +67,7 @@ export function Header() {
 
         <button
           type="button"
-          className={`relative z-10 inline-flex items-center justify-center rounded-sm p-2 md:hidden ${
-            frosted ? "text-ink" : "text-white"
-          }`}
+          className="relative z-10 inline-flex items-center justify-center rounded-sm p-2 text-white md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -89,13 +81,13 @@ export function Header() {
         id="mobile-nav"
         className={`md:hidden ${open ? "block" : "hidden"}`}
       >
-        <div className="border-t border-chrome/20 bg-surface/90 px-5 py-7 backdrop-blur-xl">
+        <div className="border-t border-white/10 bg-ink/90 px-5 py-7 backdrop-blur-xl">
           <nav className="flex flex-col gap-5" aria-label="Mobile">
             {site.nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-base font-medium text-ink"
+                className="text-base font-medium text-white"
                 onClick={() => setOpen(false)}
               >
                 {item.label}

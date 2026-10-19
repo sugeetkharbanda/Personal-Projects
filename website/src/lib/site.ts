@@ -1,23 +1,18 @@
 export const site = {
-  name: "AutoSourcing India",
-  shortName: "ASI",
-  tagline: "Sourced nationwide. Delivered with intent.",
+  name: "Auto Traders",
+  shortName: "AT",
+  tagline: "The next automotive era.",
   description:
-    "AutoSourcing India helps you find the right new car through a broader nationwide sourcing network—plus finance and insurance support when you need it.",
-  url: "https://autosourcingindia.example",
+    "Auto Traders helps you find the right new car through a broader nationwide sourcing network—plus finance and insurance support when you need it.",
+  url: "https://autotraders.example",
 
   brand: {
-    /** Transparent composite from official PSD (logo-a) */
-    logo: "/brand/logo.png",
-    logo2x: "/brand/logo@2x.png",
-    /** Square mark for nav/favicon */
+    logo: "/brand/logo.svg",
+    logoRaster: "/brand/logo.png",
+    logoOnDark: "/brand/logo-on-dark.svg",
+    logoOnDarkRaster: "/brand/logo-on-dark.png",
     icon: "/brand/logo-icon.png",
-    icon2x: "/brand/logo-icon@2x.png",
-    layers: {
-      chrome: "/brand/layers/logo.png",
-      crimson: "/brand/layers/red.png",
-      shadow: "/brand/layers/shadow.png",
-    },
+    iconOnDark: "/brand/logo-icon-on-dark.png",
   },
 
   nav: [
@@ -36,10 +31,6 @@ export const site = {
     headline: "The car you want, sourced with precision.",
     support:
       "A broader nationwide network means more options on the table—so we can pursue the right match with focus, not guesswork.",
-    image: {
-      src: "/hero/hero.jpg",
-      alt: "Editorial studio photograph of a graphite luxury sedan with crimson rim light",
-    },
   },
 
   services: [
@@ -134,11 +125,11 @@ export const site = {
   contact: {
     phone: "+91 XXXXX XXXXX",
     phoneHref: "tel:+91XXXXXXXXXX",
-    email: "hello@autosourcingindia.example",
-    emailHref: "mailto:hello@autosourcingindia.example",
+    email: "autotraders@airtelmail.in",
+    emailHref: "mailto:autotraders@airtelmail.in",
     whatsapp: "+91 XXXXX XXXXX",
     whatsappHref: "https://wa.me/91XXXXXXXXXX",
-    address: "India (nationwide sourcing)",
+    address: "Faridabad, Haryana · Nationwide sourcing",
     hours: "Mon–Sat, 10:00–19:00 IST",
   },
 
@@ -155,7 +146,7 @@ export const site = {
   ] as const,
 
   footerBlurb:
-    "AutoSourcing India connects discerning buyers with new cars through a broader nationwide sourcing network—executed with luxury of attention, focus on the brief, and determination to find a fit.",
+    "Auto Traders connects discerning buyers with new cars through a broader nationwide sourcing network—executed with focus on the brief and determination to find a fit.",
 } as const;
 
 export type ServiceOption = (typeof site.serviceOptions)[number];

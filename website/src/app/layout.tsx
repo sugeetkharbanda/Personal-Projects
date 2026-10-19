@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Manrope, Oswald } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
   display: "swap",
 });
@@ -24,11 +24,12 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   keywords: [
-    "AutoSourcing India",
+    "Auto Traders",
     "new car sourcing",
     "car finance",
     "car insurance",
     "nationwide car sourcing",
+    "Faridabad",
   ],
   openGraph: {
     type: "website",
@@ -39,10 +40,10 @@ export const metadata: Metadata = {
     description: site.description,
     images: [
       {
-        url: site.hero.image.src,
-        width: 2400,
-        height: 1350,
-        alt: site.hero.image.alt,
+        url: site.brand.logoOnDarkRaster,
+        width: 1440,
+        height: 490,
+        alt: `${site.name} logo`,
       },
     ],
   },
@@ -67,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${oswald.variable} ${manrope.variable}`}>
       <body className="min-h-screen bg-surface font-sans text-ink antialiased">
         {children}
       </body>

@@ -61,7 +61,7 @@ export function ContactForm() {
   }
 
   const fieldClass =
-    "mt-1.5 w-full rounded-sm border border-chrome/40 bg-white/90 px-3.5 py-3 text-sm text-ink placeholder:text-muted/70 transition duration-300 focus:border-crimson focus:outline-none focus:ring-2 focus:ring-crimson/25";
+    "mt-1.5 w-full rounded-sm border border-chrome/40 bg-white/90 px-3.5 py-3 text-sm text-ink placeholder:text-muted/70 transition duration-300 focus:border-signal focus:outline-none focus:ring-2 focus:ring-signal/25";
 
   return (
     <section
@@ -83,14 +83,14 @@ export function ContactForm() {
                   href={site.contact.phoneHref}
                   className="group flex items-start gap-3 text-ink"
                 >
-                  <span className="mt-0.5 text-crimson">
+                  <span className="mt-0.5 text-signal">
                     <Phone size={18} aria-hidden="true" />
                   </span>
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-muted">
                       Phone
                     </span>
-                    <span className="mt-1 block text-base group-hover:text-crimson">
+                    <span className="mt-1 block text-base group-hover:text-signal">
                       {site.contact.phone}
                     </span>
                   </span>
@@ -101,14 +101,14 @@ export function ContactForm() {
                   href={site.contact.emailHref}
                   className="group flex items-start gap-3 text-ink"
                 >
-                  <span className="mt-0.5 text-crimson">
+                  <span className="mt-0.5 text-signal">
                     <Mail size={18} aria-hidden="true" />
                   </span>
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-muted">
                       Email
                     </span>
-                    <span className="mt-1 block text-base group-hover:text-crimson">
+                    <span className="mt-1 block text-base group-hover:text-signal">
                       {site.contact.email}
                     </span>
                   </span>
@@ -121,14 +121,14 @@ export function ContactForm() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span className="mt-0.5 text-crimson">
+                  <span className="mt-0.5 text-signal">
                     <MessageCircle size={18} aria-hidden="true" />
                   </span>
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-muted">
                       WhatsApp
                     </span>
-                    <span className="mt-1 block text-base group-hover:text-crimson">
+                    <span className="mt-1 block text-base group-hover:text-signal">
                       {site.contact.whatsapp}
                     </span>
                   </span>
@@ -346,7 +346,7 @@ function Field({
       <label htmlFor={id} className="text-sm font-medium text-ink">
         {label}
         {required ? (
-          <span className="text-crimson" aria-hidden="true">
+          <span className="text-signal" aria-hidden="true">
             {" "}
             *
           </span>

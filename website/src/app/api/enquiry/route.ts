@@ -94,7 +94,7 @@ export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
   const toEmail = process.env.ENQUIRY_TO_EMAIL;
   const fromEmail =
-    process.env.ENQUIRY_FROM_EMAIL || "AutoSourcing India <onboarding@resend.dev>";
+    process.env.ENQUIRY_FROM_EMAIL || "Auto Traders <onboarding@resend.dev>";
 
   if (!apiKey || !toEmail) {
     return NextResponse.json(

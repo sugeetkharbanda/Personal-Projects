@@ -14,10 +14,18 @@ export function Services() {
   return (
     <section
       id="services"
-      className="scroll-mt-24 bg-surface py-24 sm:py-32"
+      className="relative scroll-mt-24 overflow-hidden bg-surface py-24 sm:py-32"
       aria-labelledby="services-heading"
     >
-      <Container>
+      <div
+        className="pointer-events-none absolute -right-24 top-16 h-72 w-72 rounded-full border border-silver/30 opacity-40"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -right-10 top-28 h-0 w-0 border-l-[70px] border-r-[70px] border-b-[120px] border-l-transparent border-r-transparent border-b-signal/10"
+        aria-hidden="true"
+      />
+      <Container className="relative">
         <Reveal>
           <SectionHeading
             eyebrow="Services"
@@ -38,7 +46,7 @@ export function Services() {
                 <article
                   className={`flex h-full flex-col rounded-sm p-8 sm:p-9 ${
                     service.primary
-                      ? "border border-crimson/40 bg-ink text-white shadow-[0_28px_60px_-32px_rgba(7,9,13,0.7)] lg:scale-[1.03]"
+                      ? "border border-signal/40 bg-ink text-white shadow-[0_28px_60px_-32px_rgba(7,9,13,0.7)] lg:scale-[1.03]"
                       : "glass border-chrome/30 bg-white/70 text-ink"
                   }`}
                 >
@@ -51,7 +59,7 @@ export function Services() {
                     className={`mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm ${
                       service.primary
                         ? "bg-white/8 text-chrome-bright"
-                        : "bg-surface text-crimson"
+                        : "bg-surface text-signal"
                     }`}
                   >
                     <Icon size={22} aria-hidden="true" />
@@ -79,7 +87,7 @@ export function Services() {
                       >
                         <span
                           className={`mt-2 h-1 w-1 shrink-0 rounded-full ${
-                            service.primary ? "bg-crimson-glow" : "bg-crimson"
+                            service.primary ? "bg-signal-glow" : "bg-signal"
                           }`}
                           aria-hidden="true"
                         />

@@ -1,51 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  /* Logo-derived palette: near-black graphite, chrome silver, deep crimson */
-  --ink: #07090d;
-  --graphite: #12151c;
-  --graphite-elevated: #1a1f28;
-  --surface: #eef0f3;
-  --surface-elevated: #f7f8fa;
+  /* Derived from Auto Traders CDR: #1b1918, #565757, #9c9e9f, #c5c7c8, #d10016, #e30016 */
+  --ink: #0a0909;
+  --graphite: #1b1918;
+  --graphite-elevated: #2a2827;
+  --steel: #565757;
+  --silver: #9c9e9f;
+  --chrome: #c5c7c8;
+  --chrome-bright: #e8e9ea;
+  --surface: #f2f3f4;
+  --surface-elevated: #fafafa;
   --white: #ffffff;
-  --platinum: #cfd4dc;
-  --chrome: #c0c0c0;
-  --chrome-bright: #ebecef;
-  --chrome-mid: #9aa0a8;
-  --chrome-deep: #6e747e;
-  --crimson: #a11c1e;
-  --crimson-deep: #8b0a0e;
-  --crimson-glow: #c43a3c;
-  --muted: #5a6270;
+  --platinum: #d4d5d6;
+  --signal: #d10016;
+  --signal-deep: #a50012;
+  --signal-glow: #e30016;
+  --muted: #5c5e5f;
   --success: #2f6b4f;
   --danger: #9b3b3b;
 
   --background: var(--surface);
   --foreground: var(--ink);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 @theme inline {
   --color-ink: var(--ink);
   --color-graphite: var(--graphite);
   --color-graphite-elevated: var(--graphite-elevated);
+  --color-steel: var(--steel);
+  --color-silver: var(--silver);
+  --color-chrome: var(--chrome);
+  --color-chrome-bright: var(--chrome-bright);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
   --color-platinum: var(--platinum);
-  --color-chrome: var(--chrome);
-  --color-chrome-bright: var(--chrome-bright);
-  --color-chrome-mid: var(--chrome-mid);
-  --color-chrome-deep: var(--chrome-deep);
-  --color-crimson: var(--crimson);
-  --color-crimson-deep: var(--crimson-deep);
-  --color-crimson-glow: var(--crimson-glow);
+  --color-signal: var(--signal);
+  --color-signal-deep: var(--signal-deep);
+  --color-signal-glow: var(--signal-glow);
   --color-muted: var(--muted);
   --color-success: var(--success);
   --color-danger: var(--danger);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-display: var(--font-fraunces);
+  --font-display: var(--font-oswald);
   --font-sans: var(--font-manrope);
 }
 
@@ -72,8 +71,10 @@ html {
     transform: none !important;
   }
 
-  .hero-parallax-media {
-    transform: none !important;
+  .hero-orbit,
+  .hero-sweep,
+  .hero-pulse {
+    animation: none !important;
   }
 }
 
@@ -84,53 +85,27 @@ body {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--crimson) 30%, transparent);
+  background: color-mix(in srgb, var(--signal) 35%, transparent);
   color: var(--white);
 }
 
 :focus-visible {
-  outline: 2px solid var(--crimson);
+  outline: 2px solid var(--signal);
   outline-offset: 3px;
 }
 
-/* Chrome metallic text / accents */
-.text-chrome-gradient {
-  background: linear-gradient(
-    115deg,
-    #8a9099 0%,
-    #e8eaee 28%,
-    #a8aeb8 52%,
-    #f5f6f8 72%,
-    #7d838c 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.bg-chrome-gradient {
-  background: linear-gradient(
-    135deg,
-    #6e747e 0%,
-    #c0c0c0 35%,
-    #eceef1 50%,
-    #9aa0a8 70%,
-    #5c636c 100%
-  );
-}
-
 .glass {
-  background: color-mix(in srgb, var(--white) 62%, transparent);
-  border: 1px solid color-mix(in srgb, var(--chrome) 35%, transparent);
-  backdrop-filter: blur(18px) saturate(1.2);
-  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  background: color-mix(in srgb, var(--white) 68%, transparent);
+  border: 1px solid color-mix(in srgb, var(--chrome) 40%, transparent);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
 }
 
 .glass-dark {
-  background: color-mix(in srgb, var(--graphite) 55%, transparent);
-  border: 1px solid color-mix(in srgb, var(--chrome) 22%, transparent);
-  backdrop-filter: blur(20px) saturate(1.15);
-  -webkit-backdrop-filter: blur(20px) saturate(1.15);
+  background: color-mix(in srgb, var(--graphite) 58%, transparent);
+  border: 1px solid color-mix(in srgb, var(--silver) 22%, transparent);
+  backdrop-filter: blur(20px) saturate(1.1);
+  -webkit-backdrop-filter: blur(20px) saturate(1.1);
 }
 
 @keyframes fade-rise {
@@ -155,6 +130,50 @@ body {
   }
 }
 
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-30%) rotate(12deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.55;
+  }
+  55% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateX(130%) rotate(12deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 80px 80px;
+  }
+}
+
 .animate-fade-rise {
   animation: fade-rise 1.05s var(--ease-out-expo) both;
 }
@@ -163,13 +182,25 @@ body {
   animation: nav-in 0.7s var(--ease-out-expo) both;
 }
 
+.hero-orbit {
+  animation: orbit-spin 48s linear infinite;
+  transform-origin: center;
+}
+
+.hero-sweep {
+  animation: sweep 9s var(--ease-out-expo) infinite;
+}
+
+.hero-pulse {
+  animation: pulse-ring 6s ease-in-out infinite;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(2rem);
   transition:
     opacity 0.9s var(--ease-out-expo),
     transform 0.9s var(--ease-out-expo);
-  will-change: opacity, transform;
 }
 
 .reveal.is-visible {
@@ -189,8 +220,10 @@ body {
   transition-delay: 0.3s;
 }
 
-.hero-parallax-media {
-  will-change: transform;
-  transform-origin: center center;
-  transition: transform 0.05s linear;
+.geom-grid {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--silver) 14%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--silver) 14%, transparent) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: grid-drift 28s linear infinite;
 }

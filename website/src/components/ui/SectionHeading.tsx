@@ -16,7 +16,7 @@ export function SectionHeading({
   const alignClass = align === "center" ? "mx-auto text-center" : "text-left";
   const titleColor = tone === "dark" ? "text-ink" : "text-white";
   const descColor = tone === "dark" ? "text-muted" : "text-platinum/90";
-  const eyeColor = tone === "dark" ? "text-crimson" : "text-chrome";
+  const eyeColor = tone === "dark" ? "text-signal" : "text-chrome";
 
   return (
     <div className={`max-w-3xl ${alignClass}`}>
@@ -28,7 +28,7 @@ export function SectionHeading({
         </p>
       ) : null}
       <h2
-        className={`font-display text-4xl font-semibold tracking-tight sm:text-5xl ${titleColor}`}
+        className={`font-display text-4xl font-semibold uppercase tracking-tight sm:text-5xl ${titleColor}`}
       >
         {title}
       </h2>

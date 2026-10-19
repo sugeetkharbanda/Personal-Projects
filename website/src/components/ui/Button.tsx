@@ -3,11 +3,11 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "reac
 type Variant = "primary" | "secondary" | "ghost" | "outline-light";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-crimson disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-crimson text-white shadow-[0_8px_28px_-10px_rgba(139,10,14,0.65)] hover:bg-crimson-deep hover:shadow-[0_12px_32px_-10px_rgba(139,10,14,0.75)]",
+    "bg-signal text-white shadow-[0_8px_28px_-10px_rgba(209,0,22,0.55)] hover:bg-signal-deep hover:shadow-[0_12px_32px_-10px_rgba(209,0,22,0.7)]",
   secondary:
     "bg-ink text-white hover:bg-graphite-elevated",
   ghost:
