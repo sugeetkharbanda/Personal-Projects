@@ -10,12 +10,19 @@ import { site } from "@/lib/site";
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [compact, setCompact] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
+    const onResize = () => setCompact(window.innerWidth < 768);
     onScroll();
+    onResize();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onResize, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -25,9 +32,9 @@ export function Header() {
     };
   }, [open]);
 
-  // Over dark hero: transparent/dark integrated. On scroll: frosted glass.
-  // Mobile menu open: dark frosted so it never flashes light-grey over hero.
   const elevated = scrolled || open;
+  // Full lockup at top on desktop; wordmark when scrolled or on mobile (tight)
+  const markVariant = compact || scrolled ? "wordmark" : "lockup";
 
   return (
     <header
@@ -37,14 +44,14 @@ export function Header() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <Container className="flex h-16 items-center justify-between gap-4 sm:h-[4.75rem]">
+      <Container className="flex h-16 items-center justify-between gap-3 sm:h-[4.75rem] sm:gap-4">
         <a
           href="#home"
           className="relative z-10 min-w-0 shrink overflow-visible"
           onClick={() => setOpen(false)}
           aria-label={`${site.name} home`}
         >
-          <BrandMark tone="light" size="sm" showWordmark />
+          <BrandMark tone="light" size="sm" variant={markVariant} />
         </a>
 
         <nav

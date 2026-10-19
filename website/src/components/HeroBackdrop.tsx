@@ -9,8 +9,8 @@ export function HeroBackdrop() {
       <div className="geom-grid absolute inset-0 opacity-40 mix-blend-soft-light" />
 
       {/* Signal red ambient bloom */}
-      <div className="absolute -right-1/4 top-1/4 h-[70vmin] w-[70vmin] rounded-full bg-[radial-gradient(circle,rgba(209,0,22,0.28),transparent_65%)] blur-2xl" />
-      <div className="absolute bottom-0 left-0 h-[45vmin] w-[45vmin] rounded-full bg-[radial-gradient(circle,rgba(197,199,200,0.12),transparent_70%)] blur-3xl" />
+      <div className="absolute -right-1/4 top-1/4 h-[70vmin] w-[70vmin] rounded-full bg-[radial-gradient(circle,rgba(225,0,15,0.3),transparent_65%)] blur-2xl" />
+      <div className="absolute bottom-0 left-0 h-[45vmin] w-[45vmin] rounded-full bg-[radial-gradient(circle,rgba(240,241,242,0.1),transparent_70%)] blur-3xl" />
 
       {/* Large mark geometry */}
       <svg
@@ -22,12 +22,12 @@ export function HeroBackdrop() {
           <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#c5c7c8" stopOpacity="0.15" />
             <stop offset="45%" stopColor="#9c9e9f" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#d10016" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#e1000f" stopOpacity="0.4" />
           </linearGradient>
           <linearGradient id="triGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stopColor="#e8e9ea" stopOpacity="0.55" />
-            <stop offset="55%" stopColor="#565757" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#d10016" stopOpacity="0.45" />
+            <stop offset="0%" stopColor="#f0f1f2" stopOpacity="0.55" />
+            <stop offset="45%" stopColor="#c8cacd" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#e1000f" stopOpacity="0.5" />
           </linearGradient>
           <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="4" result="blur" />
@@ -82,9 +82,9 @@ export function HeroBackdrop() {
         />
         <path
           d="M200 118 L278 264 L122 264 Z"
-          stroke="#d10016"
+          stroke="#e1000f"
           strokeWidth="1.4"
-          opacity="0.55"
+          opacity="0.6"
         />
 
         {/* Horizon lines */}
@@ -102,9 +102,9 @@ export function HeroBackdrop() {
         />
         <path
           d="M110 336 L290 336"
-          stroke="#d10016"
+          stroke="#e1000f"
           strokeWidth="0.7"
-          opacity="0.35"
+          opacity="0.4"
         />
       </svg>
 

@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  /* Derived from Auto Traders CDR: #1b1918, #565757, #9c9e9f, #c5c7c8, #d10016, #e30016 */
+  /* From official chrome mark + lockup: bright chrome, vivid red #E1000F / #C4000C */
   --ink: #0a0909;
   --graphite: #1b1918;
   --graphite-elevated: #2a2827;
   --steel: #565757;
   --silver: #9c9e9f;
-  --chrome: #c5c7c8;
-  --chrome-bright: #e8e9ea;
+  --chrome: #c8cacd;
+  --chrome-bright: #f0f1f2;
   --surface: #f2f3f4;
   --surface-elevated: #fafafa;
   --white: #ffffff;
-  --platinum: #d4d5d6;
-  --signal: #d10016;
-  --signal-deep: #a50012;
-  --signal-glow: #e30016;
+  --platinum: #d6d7d9;
+  --signal: #e1000f;
+  --signal-deep: #c4000c;
+  --signal-glow: #ff1a2b;
   --muted: #5c5e5f;
   --success: #2f6b4f;
   --danger: #9b3b3b;

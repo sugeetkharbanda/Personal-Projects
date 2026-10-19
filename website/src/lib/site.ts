@@ -7,12 +7,18 @@ export const site = {
   url: "https://autotraders.example",
 
   brand: {
-    logo: "/brand/logo.svg",
-    logoRaster: "/brand/logo.png",
-    logoOnDark: "/brand/logo-on-dark.svg",
-    logoOnDarkRaster: "/brand/logo-on-dark.png",
-    icon: "/brand/logo-icon.png",
-    iconOnDark: "/brand/logo-icon-on-dark.png",
+    /** Official lockup (chrome mark + wordmark) — light surfaces */
+    logo: "/brand/logo.png",
+    logo2x: "/brand/logo@2x.png",
+    /** Official lockup with light chrome text — dark surfaces */
+    logoOnDark: "/brand/logo-on-dark.png",
+    logoOnDark2x: "/brand/logo-on-dark@2x.png",
+    /** Wordmark only (tight header / mobile) */
+    wordmark: "/brand/wordmark.png",
+    wordmarkOnDark: "/brand/wordmark-on-dark.png",
+    /** 3D chrome mark alone */
+    icon: "/brand/logo-mark.png",
+    icon2x: "/brand/logo-mark@2x.png",
   },
 
   nav: [

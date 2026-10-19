@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     description: site.description,
     images: [
       {
-        url: site.brand.logoOnDarkRaster,
-        width: 1440,
-        height: 490,
+        url: site.brand.logoOnDark,
+        width: 1080,
+        height: 210,
         alt: `${site.name} logo`,
       },
     ],
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: [{ url: "/brand/logo-icon.png", type: "image/png" }],
+    icon: [{ url: "/brand/logo-mark.png", type: "image/png" }],
     apple: [{ url: "/apple-icon.png", type: "image/png" }],
   },
 };

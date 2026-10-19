@@ -10,7 +10,7 @@ export function Footer() {
       <Container className="py-16 sm:py-20">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <BrandMark tone="light" size="sm" />
+            <BrandMark tone="light" size="sm" variant="lockup" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-platinum/80">
               {site.footerBlurb}
             </p>
