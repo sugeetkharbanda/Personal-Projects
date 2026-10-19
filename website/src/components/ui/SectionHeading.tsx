@@ -19,21 +19,21 @@ export function SectionHeading({
   const eyeColor = tone === "dark" ? "text-crimson" : "text-chrome";
 
   return (
-    <div className={`max-w-2xl ${alignClass}`}>
+    <div className={`max-w-3xl ${alignClass}`}>
       {eyebrow ? (
         <p
-          className={`mb-3 text-xs font-semibold uppercase tracking-[0.22em] ${eyeColor}`}
+          className={`mb-4 text-[0.7rem] font-semibold uppercase tracking-[0.26em] ${eyeColor}`}
         >
           {eyebrow}
         </p>
       ) : null}
       <h2
-        className={`font-display text-3xl font-semibold tracking-tight sm:text-4xl ${titleColor}`}
+        className={`font-display text-4xl font-semibold tracking-tight sm:text-5xl ${titleColor}`}
       >
         {title}
       </h2>
       {description ? (
-        <p className={`mt-4 text-base leading-relaxed sm:text-lg ${descColor}`}>
+        <p className={`mt-5 text-base leading-relaxed sm:text-lg ${descColor}`}>
           {description}
         </p>
       ) : null}

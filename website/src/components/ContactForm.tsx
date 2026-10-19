@@ -61,12 +61,12 @@ export function ContactForm() {
   }
 
   const fieldClass =
-    "mt-1.5 w-full rounded-sm border border-platinum bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-muted/70 transition focus:border-crimson focus:outline-none focus:ring-2 focus:ring-crimson/25";
+    "mt-1.5 w-full rounded-sm border border-chrome/40 bg-white/90 px-3.5 py-3 text-sm text-ink placeholder:text-muted/70 transition duration-300 focus:border-crimson focus:outline-none focus:ring-2 focus:ring-crimson/25";
 
   return (
     <section
       id="contact"
-      className="scroll-mt-20 bg-surface py-20 sm:py-24"
+      className="scroll-mt-24 bg-surface py-24 sm:py-32"
       aria-labelledby="contact-heading"
     >
       <Container>
@@ -148,7 +148,7 @@ export function ContactForm() {
             <form
               onSubmit={onSubmit}
               noValidate
-              className="rounded-sm border border-platinum bg-white p-6 sm:p-8"
+              className="glass rounded-sm border-chrome/30 bg-white/80 p-6 sm:p-9"
               aria-describedby="form-status"
             >
               <h3 id="contact-heading" className="sr-only">

@@ -41,7 +41,7 @@ export const metadata: Metadata = {
       {
         url: site.hero.image.src,
         width: 2400,
-        height: 1600,
+        height: 1350,
         alt: site.hero.image.alt,
       },
     ],

@@ -7,10 +7,17 @@ export const site = {
   url: "https://autosourcingindia.example",
 
   brand: {
-    /** High-res primary mark (from logo-c) */
+    /** Transparent composite from official PSD (logo-a) */
     logo: "/brand/logo.png",
-    /** Compact mark for nav/favicon (from logo-b) */
+    logo2x: "/brand/logo@2x.png",
+    /** Square mark for nav/favicon */
     icon: "/brand/logo-icon.png",
+    icon2x: "/brand/logo-icon@2x.png",
+    layers: {
+      chrome: "/brand/layers/logo.png",
+      crimson: "/brand/layers/red.png",
+      shadow: "/brand/layers/shadow.png",
+    },
   },
 
   nav: [
@@ -30,8 +37,8 @@ export const site = {
     support:
       "A broader nationwide network means more options on the table—so we can pursue the right match with focus, not guesswork.",
     image: {
-      src: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2400&q=80",
-      alt: "Premium automobile in dramatic lighting",
+      src: "/hero/hero.jpg",
+      alt: "Editorial studio photograph of a graphite luxury sedan with crimson rim light",
     },
   },
 

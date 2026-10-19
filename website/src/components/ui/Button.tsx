@@ -3,17 +3,17 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "reac
 type Variant = "primary" | "secondary" | "ghost" | "outline-light";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold tracking-wide transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-crimson disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-crimson disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-crimson text-white hover:bg-crimson-deep shadow-[0_1px_0_rgba(11,20,38,0.12)]",
+    "bg-crimson text-white shadow-[0_8px_28px_-10px_rgba(139,10,14,0.65)] hover:bg-crimson-deep hover:shadow-[0_12px_32px_-10px_rgba(139,10,14,0.75)]",
   secondary:
-    "bg-ink text-white hover:bg-graphite",
+    "bg-ink text-white hover:bg-graphite-elevated",
   ghost:
-    "bg-transparent text-ink hover:bg-platinum/40",
+    "bg-transparent text-ink hover:bg-platinum/35",
   "outline-light":
-    "border border-chrome/80 bg-transparent text-white hover:bg-white/10",
+    "border border-chrome/70 bg-white/5 text-white backdrop-blur-md hover:border-chrome-bright hover:bg-white/10",
 };
 
 type Common = {

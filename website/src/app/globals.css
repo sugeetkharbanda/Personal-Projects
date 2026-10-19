@@ -1,34 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0b1426;
-  --graphite: #1c2430;
-  --surface: #f3f5f8;
+  /* Logo-derived palette: near-black graphite, chrome silver, deep crimson */
+  --ink: #07090d;
+  --graphite: #12151c;
+  --graphite-elevated: #1a1f28;
+  --surface: #eef0f3;
+  --surface-elevated: #f7f8fa;
   --white: #ffffff;
-  --platinum: #d5dae3;
+  --platinum: #cfd4dc;
   --chrome: #c0c0c0;
-  --chrome-bright: #e4e6ea;
-  --chrome-deep: #8b919a;
+  --chrome-bright: #ebecef;
+  --chrome-mid: #9aa0a8;
+  --chrome-deep: #6e747e;
   --crimson: #a11c1e;
-  --crimson-deep: #7b1012;
-  --muted: #5c6573;
+  --crimson-deep: #8b0a0e;
+  --crimson-glow: #c43a3c;
+  --muted: #5a6270;
   --success: #2f6b4f;
   --danger: #9b3b3b;
 
   --background: var(--surface);
   --foreground: var(--ink);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 @theme inline {
   --color-ink: var(--ink);
   --color-graphite: var(--graphite);
+  --color-graphite-elevated: var(--graphite-elevated);
   --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
   --color-platinum: var(--platinum);
   --color-chrome: var(--chrome);
   --color-chrome-bright: var(--chrome-bright);
+  --color-chrome-mid: var(--chrome-mid);
   --color-chrome-deep: var(--chrome-deep);
   --color-crimson: var(--crimson);
   --color-crimson-deep: var(--crimson-deep);
+  --color-crimson-glow: var(--crimson-glow);
   --color-muted: var(--muted);
   --color-success: var(--success);
   --color-danger: var(--danger);
@@ -53,6 +64,16 @@ html {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-parallax-media {
+    transform: none !important;
   }
 }
 
@@ -63,8 +84,8 @@ body {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--crimson) 28%, transparent);
-  color: var(--ink);
+  background: color-mix(in srgb, var(--crimson) 30%, transparent);
+  color: var(--white);
 }
 
 :focus-visible {
@@ -72,10 +93,50 @@ body {
   outline-offset: 3px;
 }
 
+/* Chrome metallic text / accents */
+.text-chrome-gradient {
+  background: linear-gradient(
+    115deg,
+    #8a9099 0%,
+    #e8eaee 28%,
+    #a8aeb8 52%,
+    #f5f6f8 72%,
+    #7d838c 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-chrome-gradient {
+  background: linear-gradient(
+    135deg,
+    #6e747e 0%,
+    #c0c0c0 35%,
+    #eceef1 50%,
+    #9aa0a8 70%,
+    #5c636c 100%
+  );
+}
+
+.glass {
+  background: color-mix(in srgb, var(--white) 62%, transparent);
+  border: 1px solid color-mix(in srgb, var(--chrome) 35%, transparent);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.glass-dark {
+  background: color-mix(in srgb, var(--graphite) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--chrome) 22%, transparent);
+  backdrop-filter: blur(20px) saturate(1.15);
+  -webkit-backdrop-filter: blur(20px) saturate(1.15);
+}
+
 @keyframes fade-rise {
   from {
     opacity: 0;
-    transform: translateY(1.25rem);
+    transform: translateY(1.75rem);
   }
   to {
     opacity: 1;
@@ -86,7 +147,7 @@ body {
 @keyframes nav-in {
   from {
     opacity: 0;
-    transform: translateY(-0.75rem);
+    transform: translateY(-0.85rem);
   }
   to {
     opacity: 1;
@@ -95,19 +156,20 @@ body {
 }
 
 .animate-fade-rise {
-  animation: fade-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: fade-rise 1.05s var(--ease-out-expo) both;
 }
 
 .animate-nav-in {
-  animation: nav-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: nav-in 0.7s var(--ease-out-expo) both;
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(1.5rem);
+  transform: translateY(2rem);
   transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.9s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo);
+  will-change: opacity, transform;
 }
 
 .reveal.is-visible {
@@ -116,13 +178,19 @@ body {
 }
 
 .reveal-delay-1 {
-  transition-delay: 0.08s;
+  transition-delay: 0.1s;
 }
 
 .reveal-delay-2 {
-  transition-delay: 0.16s;
+  transition-delay: 0.2s;
 }
 
 .reveal-delay-3 {
-  transition-delay: 0.24s;
+  transition-delay: 0.3s;
+}
+
+.hero-parallax-media {
+  will-change: transform;
+  transform-origin: center center;
+  transition: transform 0.05s linear;
 }

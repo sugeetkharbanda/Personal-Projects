@@ -12,7 +12,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 18);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -25,15 +25,17 @@ export function Header() {
     };
   }, [open]);
 
+  const frosted = scrolled || open;
+
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 animate-nav-in transition-colors duration-300 ${
-        scrolled || open
-          ? "border-b border-platinum/80 bg-surface/95 backdrop-blur-md"
+      className={`fixed inset-x-0 top-0 z-50 animate-nav-in transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        frosted
+          ? "border-b border-chrome/25 bg-surface/75 shadow-[0_10px_40px_-24px_rgba(7,9,13,0.45)] backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <Container className="flex h-16 items-center justify-between sm:h-[4.5rem]">
+      <Container className="flex h-16 items-center justify-between sm:h-[4.75rem]">
         <a
           href="#home"
           className="relative z-10"
@@ -41,24 +43,24 @@ export function Header() {
           aria-label={`${site.name} home`}
         >
           <BrandMark
-            tone={scrolled || open ? "dark" : "light"}
+            tone={frosted ? "dark" : "light"}
             size="sm"
             showWordmark
           />
         </a>
 
         <nav
-          className="hidden items-center gap-8 md:flex"
+          className="hidden items-center gap-9 md:flex"
           aria-label="Primary"
         >
           {site.nav.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium transition-colors ${
-                scrolled
-                  ? "text-ink/80 hover:text-ink"
-                  : "text-white/85 hover:text-white"
+              className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
+                frosted
+                  ? "text-ink/75 hover:text-ink"
+                  : "text-white/80 hover:text-white"
               }`}
             >
               {item.label}
@@ -72,7 +74,7 @@ export function Header() {
         <button
           type="button"
           className={`relative z-10 inline-flex items-center justify-center rounded-sm p-2 md:hidden ${
-            scrolled || open ? "text-ink" : "text-white"
+            frosted ? "text-ink" : "text-white"
           }`}
           aria-expanded={open}
           aria-controls="mobile-nav"
@@ -87,8 +89,8 @@ export function Header() {
         id="mobile-nav"
         className={`md:hidden ${open ? "block" : "hidden"}`}
       >
-        <div className="border-t border-platinum bg-surface px-5 py-6 shadow-lg">
-          <nav className="flex flex-col gap-4" aria-label="Mobile">
+        <div className="border-t border-chrome/20 bg-surface/90 px-5 py-7 backdrop-blur-xl">
+          <nav className="flex flex-col gap-5" aria-label="Mobile">
             {site.nav.map((item) => (
               <a
                 key={item.href}

@@ -14,7 +14,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="scroll-mt-20 bg-surface py-20 sm:py-24"
+      className="scroll-mt-24 bg-surface py-24 sm:py-32"
       aria-labelledby="services-heading"
     >
       <Container>
@@ -26,7 +26,7 @@ export function Services() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-16 grid gap-7 lg:grid-cols-3 lg:gap-8">
           {site.services.map((service, index) => {
             const Icon = icons[service.id as keyof typeof icons] ?? Car;
             return (
@@ -36,21 +36,21 @@ export function Services() {
                 className="h-full"
               >
                 <article
-                  className={`flex h-full flex-col rounded-sm border p-7 sm:p-8 ${
+                  className={`flex h-full flex-col rounded-sm p-8 sm:p-9 ${
                     service.primary
-                      ? "border-crimson/45 bg-ink text-white shadow-[0_20px_50px_-28px_rgba(11,20,38,0.55)] lg:scale-[1.02]"
-                      : "border-platinum bg-white text-ink"
+                      ? "border border-crimson/40 bg-ink text-white shadow-[0_28px_60px_-32px_rgba(7,9,13,0.7)] lg:scale-[1.03]"
+                      : "glass border-chrome/30 bg-white/70 text-ink"
                   }`}
                 >
                   {service.primary ? (
-                    <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-chrome">
+                    <p className="mb-5 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-chrome">
                       Primary service
                     </p>
                   ) : null}
                   <div
-                    className={`mb-5 inline-flex h-11 w-11 items-center justify-center rounded-sm ${
+                    className={`mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm ${
                       service.primary
-                        ? "bg-white/10 text-chrome"
+                        ? "bg-white/8 text-chrome-bright"
                         : "bg-surface text-crimson"
                     }`}
                   >
@@ -58,28 +58,28 @@ export function Services() {
                   </div>
                   <h3
                     id={service.primary ? "services-heading" : undefined}
-                    className="font-display text-2xl font-semibold tracking-tight"
+                    className="font-display text-2xl font-semibold tracking-tight sm:text-[1.7rem]"
                   >
                     {service.title}
                   </h3>
                   <p
-                    className={`mt-3 text-sm leading-relaxed sm:text-base ${
+                    className={`mt-4 text-sm leading-relaxed sm:text-base ${
                       service.primary ? "text-platinum/90" : "text-muted"
                     }`}
                   >
                     {service.description}
                   </p>
-                  <ul className="mt-6 space-y-2.5">
+                  <ul className="mt-8 space-y-3">
                     {service.points.map((point) => (
                       <li
                         key={point}
-                        className={`flex gap-2 text-sm ${
+                        className={`flex gap-2.5 text-sm ${
                           service.primary ? "text-platinum" : "text-ink/80"
                         }`}
                       >
                         <span
                           className={`mt-2 h-1 w-1 shrink-0 rounded-full ${
-                            service.primary ? "bg-crimson" : "bg-chrome-deep"
+                            service.primary ? "bg-crimson-glow" : "bg-crimson"
                           }`}
                           aria-hidden="true"
                         />

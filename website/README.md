@@ -50,18 +50,19 @@ See [`.env.example`](.env.example).
 
 | Token         | Value     |
 |---------------|-----------|
-| Ink           | `#0B1426` |
-| Graphite      | `#1C2430` |
-| Surface       | `#F3F5F8` |
-| Platinum      | `#D5DAE3` |
+| Ink           | `#07090D` |
+| Graphite      | `#12151C` |
+| Surface       | `#EEF0F3` |
 | Chrome        | `#C0C0C0` |
-| Crimson (CTA) | `#A11C1E` |
+| Crimson       | `#A11C1E` |
+| Crimson deep  | `#8B0A0E` |
 
-Brand marks (official logos, white keyed for dark surfaces):
+Brand marks (extracted from official PSD `logo-a.png` via `psd-tools`):
 
-- `public/brand/logo.png` — primary high-res mark (from `logo-c.png`)
-- `public/brand/logo-icon.png` — nav/favicon mark (from `logo-b.png`)
-- `logo-a.png` was an Adobe Photoshop file misnamed as PNG — not shipped
+- `public/brand/logo.png` + `logo@2x.png` — transparent composite (chrome + crimson + soft shadow)
+- `public/brand/logo-icon.png` + `logo-icon@2x.png` — square nav/favicon
+- `public/brand/layers/` — `logo.png` (chrome), `red.png` (crimson), `shadow.png`
+- Hero: `public/hero/hero.jpg` — art-directed studio plate with brand grading
 
 Differentiator copy centres on a **broader nationwide sourcing network**. Shorter waits are framed as a possible outcome, never a guarantee. No fabricated testimonials, stats, affiliations, prices, or timelines.
 
@@ -73,7 +74,7 @@ Differentiator copy centres on a **broader nationwide sourcing network**. Shorte
 4. **Resend credentials** + enquiry inbox (`RESEND_API_KEY`, `ENQUIRY_TO_EMAIL`, verified from address)
 5. **Domain / hosting** preferences for deploy
 6. Privacy & Terms page content (stubs only today)
-7. Transparent source exports of the logo (current PNGs had a white backdrop; we keyed it out for dark UI)
+7. Optional native SVG of the mark if design provides one
 
 ## Project layout
 

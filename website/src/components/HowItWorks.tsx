@@ -7,7 +7,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="scroll-mt-20 bg-white py-20 sm:py-24"
+      className="scroll-mt-24 bg-surface-elevated py-24 sm:py-32"
       aria-labelledby="how-heading"
     >
       <Container>
@@ -19,30 +19,30 @@ export function HowItWorks() {
           />
         </Reveal>
 
-        <ol className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {site.steps.map((item, index) => (
             <Reveal
               key={item.step}
               delay={(Math.min(index, 3) as 0 | 1 | 2 | 3)}
             >
               <li className="relative">
-                <div className="mb-5 flex items-baseline gap-3">
+                <div className="mb-6 flex items-baseline gap-3">
                   <span
-                    className="font-display text-4xl font-semibold text-crimson"
+                    className="font-display text-5xl font-semibold tracking-tight text-crimson"
                     aria-hidden="true"
                   >
                     {String(item.step).padStart(2, "0")}
                   </span>
                   {index < site.steps.length - 1 ? (
                     <span
-                      className="hidden h-px flex-1 bg-platinum lg:block"
+                      className="hidden h-px flex-1 bg-gradient-to-r from-chrome to-transparent lg:block"
                       aria-hidden="true"
                     />
                   ) : null}
                 </div>
                 <h3
                   id={index === 0 ? "how-heading" : undefined}
-                  className="font-display text-xl font-semibold text-ink"
+                  className="font-display text-xl font-semibold text-ink sm:text-2xl"
                 >
                   {item.title}
                 </h3>

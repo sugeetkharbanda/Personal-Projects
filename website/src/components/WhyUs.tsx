@@ -10,7 +10,7 @@ export function WhyUs() {
   return (
     <section
       id="why-us"
-      className="scroll-mt-20 bg-graphite py-20 text-white sm:py-24"
+      className="scroll-mt-24 bg-graphite py-24 text-white sm:py-32"
       aria-labelledby="why-heading"
     >
       <Container>
@@ -23,7 +23,7 @@ export function WhyUs() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 sm:gap-10">
           {site.whyUs.map((item, index) => {
             const Icon = icons[index] ?? Compass;
             return (
@@ -31,17 +31,17 @@ export function WhyUs() {
                 key={item.title}
                 delay={(Math.min(index, 3) as 0 | 1 | 2 | 3)}
               >
-                <article className="border-l border-chrome/50 pl-5 sm:pl-6">
-                  <div className="mb-3 inline-flex text-crimson">
+                <article className="glass-dark rounded-sm border-l-2 border-l-crimson/70 p-6 sm:p-7">
+                  <div className="mb-4 inline-flex text-chrome-bright">
                     <Icon size={22} aria-hidden="true" />
                   </div>
                   <h3
                     id={index === 0 ? "why-heading" : undefined}
-                    className="font-display text-xl font-semibold"
+                    className="font-display text-xl font-semibold sm:text-2xl"
                   >
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-platinum/90 sm:text-base">
+                  <p className="mt-3 text-sm leading-relaxed text-platinum/90 sm:text-base">
                     {item.description}
                   </p>
                 </article>

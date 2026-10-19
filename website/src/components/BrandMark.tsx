@@ -8,9 +8,9 @@ type BrandMarkProps = {
 };
 
 const sizeMap = {
-  sm: { mark: 36, word: "text-base" },
-  md: { mark: 44, word: "text-lg" },
-  lg: { mark: 56, word: "text-2xl" },
+  sm: { mark: 40, word: "text-base sm:text-lg" },
+  md: { mark: 48, word: "text-lg sm:text-xl" },
+  lg: { mark: 64, word: "text-2xl" },
 };
 
 export function BrandMark({
@@ -30,6 +30,7 @@ export function BrandMark({
         height={s.mark}
         className="h-auto w-auto shrink-0 object-contain"
         style={{ width: s.mark, height: s.mark }}
+        sizes={`${s.mark}px`}
         priority
       />
       {showWordmark ? (
